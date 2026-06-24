@@ -25,8 +25,10 @@ with open(f'{model_name}/initial_control_config.yaml', 'r') as file:
     dynamic_params = np.array(params_yaml['model_parameters'])
     motion_law_params = controller_params['motion_law_parameters']
 
-# Create simulator for Gantry SEA robot (MuJoCo)
-xml_path = f"{model_name}/model_without_vases.xml"
+# Create simulator for Gantry SEA robo t (MuJoCo)
+xml_path = (f"{model_name}/model_without.0_v"
+            f""
+            f"r4ases.xml")
 robot = MuJoCoMechanicalSystem(xml_path=xml_path)
 robot.initialize()
 robot.show()
@@ -42,7 +44,7 @@ t = np.arange(0, Duration + Tc, Tc)  # Ensure inclusion of Duration if possible
 f0=1.0
 f1=500.0 # Tc=0.001 Fc=1000Hz, Shannon/Nyquist 500Hz
 A=50.0
-joint_number=0  # array index
+joint_number=2  # array index
 chirp_signal = A*chirp(t, f0=f0, f1=f1, t1=Duration, method='logarithmic')
 
 

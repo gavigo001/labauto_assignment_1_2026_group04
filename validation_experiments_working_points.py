@@ -53,7 +53,7 @@ feedforward_action = np.array([0.0]*dof)
 decentralized_ctrl.starting(initial_reference, measured_output, joint_torque, feedforward_action)
 
 
-working_points=[[0.0,0.0,0.0],[0.5,.5,0.5],[0.0,-0.5,1.0]]
+working_points=[[0.0,0.0,0.0],[0.5,0.5,0.5],[0.0,-0.5,1.0]]
 
 # run
 from scipy.signal import chirp
@@ -64,7 +64,7 @@ t = np.arange(0, Duration + Tc, Tc)  # Ensure inclusion of Duration if possible
 f0 = 1.0
 f1 = 500.0
 A = 40.0
-joint_number = 1
+joint_number = 2
 chirp_signal = A * chirp(t, f0=f0, f1=f1, t1=Duration, method='logarithmic')
 
 # Define a sequence of motion instructions
